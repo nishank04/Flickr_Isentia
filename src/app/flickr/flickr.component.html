@@ -1,0 +1,33 @@
+<div id="loading-bar"></div>
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/"><img src="assets/logo.png"></a>
+            </li>
+            <li style="float: right;">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                  <input id="search" type="text" class="form-control" placeholder="Photos, people, or groups" [formControl]="searchControl">
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="container">
+        <div class="masonry" infiniteScroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="50"
+        (scrolled)="onScroll()">
+            <div class="item" *ngFor="let photo of photos">
+              <img src={{photo.url}}>
+              <span>{{photo.title}}</span>
+            </div>
+        </div>
+    </div>
+</div> 
